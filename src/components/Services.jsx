@@ -24,80 +24,56 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="relative w-full py-[80px] overflow-visible">
-      <div className="max-w-[1600px] mx-auto px-[60px]">
+    <section className="relative w-full py-[100px] overflow-visible">
+      <div className="mx-auto max-w-[1618px] px-[80px]">
 
-        {/* Heading */}
-        <div className="mb-[60px] relative">
-          <h2
-            className="font-satoshi font-bold text-black leading-[1.05]"
-            style={{ fontSize: 'clamp(48px, 5.5vw, 88px)' }}
-          >
-            What we{' '}
-            <span className="underline-red-bold">can</span>
+        <div className="relative mb-[60px]">
+          <h2 className="font-gerbil text-[56px] leading-[76px] font-[400] text-black max-w-[860px]">
+            What we <span className="text-highlight-green">can</span>
             <br />
             offer you!
           </h2>
 
-          {/* Wavy red line beside heading */}
           <img
             src={vector2516}
             alt=""
-            className="decorative absolute"
-            style={{ width: '320px', right: '100px', top: '60px', zIndex: 1 }}
+            className="decorative absolute hidden xl:block"
+            style={{ width: '320px', right: '0', top: '40px', zIndex: 1 }}
           />
         </div>
 
-        {/* Service rows */}
-        <div className="flex flex-col">
+        <div className="space-y-[24px]">
           {services.map((service, index) => (
             <div
               key={service.id}
               id={service.id}
-              className="service-row flex items-center gap-[40px] py-[28px] cursor-pointer"
+              className="service-row relative grid grid-cols-[220px_1fr_auto] items-center gap-6 py-[42px]"
               style={{
-                borderTop: index === 0 ? '1px solid #D8D8D8' : 'none',
+                borderTop: index === 0 ? '1px solid #D8D8D8' : undefined,
                 borderBottom: '1px solid #D8D8D8',
               }}
             >
-              {/* Left tag */}
-              <div
-                className="text-[#888] leading-[1.6]"
-                style={{ fontSize: 'clamp(11px, 0.85vw, 13px)', minWidth: '200px', whiteSpace: 'pre-line' }}
-              >
+              <div className="font-satoshi text-[18px] leading-[24px] text-[#000] whitespace-pre-line" style={{ minWidth: '220px' }}>
                 {service.tag}
               </div>
 
-              {/* Center title */}
-              <div className="flex-1 flex items-center gap-4">
-                <h3
-                  className="font-satoshi font-medium text-black"
-                  style={{ fontSize: 'clamp(20px, 2.2vw, 36px)' }}
-                >
-                  {service.badge ? (
-                    <>
-                      {service.title.slice(0, service.title.indexOf('con'))}
-                      <span className="relative inline-block">
-                        con
-                        <img
-                          src={service.badge}
-                          alt="badge"
-                          className="absolute decorative"
-                          style={{ width: '52px', bottom: '-14px', left: '50%', transform: 'translateX(-50%)' }}
-                        />
-                      </span>
-                      {service.title.slice(service.title.indexOf('con') + 3)}
-                    </>
-                  ) : (
-                    service.title
-                  )}
+              <div className="relative">
+                <h3 className="font-gerbil text-[56px] leading-[76px] text-black font-[400]">
+                  {service.title}
                 </h3>
+                {service.badge && (
+                  <img
+                    src={service.badge}
+                    alt="badge"
+                    className="decorative absolute"
+                    style={{ width: '72px', right: '-62px', top: '12px', zIndex: 2 }}
+                  />
+                )}
               </div>
 
-              {/* Right arrow */}
-              <div className="arrow-btn ml-auto">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <path d="M3 9H15M15 9L9.5 3.5M15 9L9.5 14.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <div className="flex justify-end">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="arrow-btn">
+                  <path d="M6 12H18M18 12L12 6M18 12L12 18" stroke="#000" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
             </div>

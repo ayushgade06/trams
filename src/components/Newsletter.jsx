@@ -1,54 +1,38 @@
 // Newsletter Section — "Subscribe to our newsletter"
 
 import polygon3 from '../../trams/Polygon 3.png'
-import vector2510 from '../../trams/Vector 2510.png'
+import vector2518 from '../../trams/Vector 2518.png'
 
 export default function Newsletter() {
   return (
-    <section
-      className="relative w-full overflow-hidden"
-      style={{ background: '#C8D8C4', padding: '100px 0 80px' }}
-    >
-      <div className="max-w-[1600px] mx-auto px-[60px] relative">
-
-        {/* Squiggle top-left decoration */}
+    <section className="relative w-full overflow-hidden bg-[#DDE8D9] pt-[100px] pb-[80px]">
+      <div className="relative mx-auto max-w-[1920px] px-[80px]">
         <img
-          src={vector2510}
+          src={vector2518}
           alt=""
-          className="decorative absolute"
-          style={{ width: '60px', left: '80px', top: '-20px', zIndex: 1 }}
+          className="decorative absolute hidden md:block"
+          style={{ width: '160px', left: '50%', top: '-18px', transform: 'translateX(-50%)', zIndex: 1 }}
         />
 
-        {/* Purple polygon top-right */}
         <img
           src={polygon3}
           alt=""
-          className="decorative absolute"
+          className="decorative absolute hidden md:block"
           style={{ width: '110px', right: '80px', top: '20px', zIndex: 1 }}
         />
 
-        {/* Content centered */}
-        <div className="text-center relative z-10">
-          <h2
-            className="font-satoshi font-bold text-black leading-[1.1] mb-[20px]"
-            style={{ fontSize: 'clamp(44px, 5vw, 80px)' }}
-          >
+        <div className="relative z-10 mx-auto max-w-[860px] text-center">
+          <h2 className="font-gerbil text-[56px] leading-[76px] font-[400] text-black mb-[24px]">
             Subscribe to
             <br />
             our newsletter
           </h2>
 
-          <p
-            className="text-[#444] mb-[44px]"
-            style={{ fontSize: 'clamp(13px, 1vw, 16px)' }}
-          >
+          <p className="font-satoshi text-[18px] leading-[24px] text-[#000] mb-[44px]">
             To make your stay special and even more memorable
           </p>
 
-          <button
-            id="subscribe-btn"
-            className="subscribe-btn"
-          >
+          <button id="subscribe-btn" className="subscribe-btn">
             Subscribe Now
           </button>
         </div>

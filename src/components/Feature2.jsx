@@ -6,70 +6,63 @@ import vector2516 from '../../trams/Vector 2516.png'
 
 export default function Feature2() {
   return (
-    <section className="relative w-full overflow-visible py-[100px]">
-      <div className="max-w-[1600px] mx-auto px-[60px]">
-        <div className="flex items-center gap-[60px] flex-wrap-reverse lg:flex-nowrap">
+    <section className="relative w-full overflow-visible py-[120px]">
+      <div className="mx-auto max-w-[1599px] px-[80px]">
+        <div className="grid gap-[88px] lg:grid-cols-[1fr_1.1fr] items-center">
+          <div className="relative flex justify-center items-center">
+            <div
+              className="absolute rounded-full"
+              style={{
+                width: '440px',
+                height: '440px',
+                background: 'radial-gradient(circle, rgba(255,107,107,0.18) 0%, transparent 72%)',
+                zIndex: 1,
+              }}
+            />
 
-          {/* Left: Circular photo with triangles */}
-          <div className="flex-1 min-w-[300px] relative flex justify-center items-center" style={{ minHeight: '460px' }}>
-
-            {/* Main circular photo */}
             <img
               src={image348_1}
               alt="Team working"
               className="avatar-circle relative"
-              style={{ width: '360px', height: '360px', zIndex: 2 }}
+              style={{ width: '500px', height: '500px', zIndex: 2 }}
             />
 
-            {/* Red triangle top-right */}
             <img
               src={polygon1}
               alt=""
               className="decorative absolute"
-              style={{ width: '100px', top: '20px', right: '80px', zIndex: 3 }}
+              style={{ width: '108px', top: '32px', right: '72px', zIndex: 3 }}
             />
-
-            {/* Red triangle bottom-left (smaller) */}
             <img
               src={polygon1}
               alt=""
               className="decorative absolute"
-              style={{ width: '65px', bottom: '60px', left: '60px', zIndex: 3, opacity: 0.85 }}
+              style={{ width: '72px', bottom: '72px', left: '68px', zIndex: 3, opacity: 0.92 }}
             />
           </div>
 
-          {/* Right: Text content */}
-          <div className="flex-1 min-w-[300px]">
-            <h2
-              className="font-satoshi font-bold text-black leading-[1.15] mb-[28px]"
-              style={{ fontSize: 'clamp(32px, 3.5vw, 56px)' }}
-            >
-              See how we can
+          <div className="max-w-[740px]">
+            <h2 className="font-gerbil text-[56px] leading-[76px] font-[400] text-black mb-[30px]">
+              <span className="text-highlight-green">See</span> how we can
               <br />
-              help you progress
+              help you <span className="underline-yellow">progress</span>
             </h2>
-
-            <p
-              className="text-[#555] leading-[1.8] mb-[36px]"
-              style={{ fontSize: 'clamp(13px, 1vw, 15px)', maxWidth: '400px' }}
-            >
+            <p className="font-satoshi text-[24px] leading-[36px] text-[#000] mb-[40px]">
               We add a layer of fearless insights and action that allows change
               makers to accelerate their progress in areas such as brand, design
               digital, comms and social research.
             </p>
-
             <a href="#" className="read-more-link">Read more</a>
           </div>
         </div>
-      </div>
 
-      {/* Wavy red line decoration */}
-      <img
-        src={vector2516}
-        alt=""
-        className="decorative absolute"
-        style={{ width: '55%', right: '0', bottom: '-40px', zIndex: 1 }}
-      />
+        <img
+          src={vector2516}
+          alt=""
+          className="decorative absolute hidden lg:block"
+          style={{ width: '55%', maxWidth: '620px', right: '0', bottom: '-32px', zIndex: 1 }}
+        />
+      </div>
     </section>
   )
 }
