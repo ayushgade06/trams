@@ -13,8 +13,8 @@ export default function Feature1() {
           {/* Left: Text content */}
           <div className="flex-1 min-w-[300px]">
             <h2
-              className="font-satoshi font-bold text-black leading-[1.1] mb-[28px]"
-              style={{ fontSize: 'clamp(32px, 3.5vw, 56px)' }}
+              className="font-satoshi text-black leading-[1.35] mb-[28px]"
+              style={{ fontSize: '56px', fontWeight: 400 }}
             >
               <span className="underline-red-bold italic">Tomorrow</span> should
               <br />
@@ -22,8 +22,8 @@ export default function Feature1() {
             </h2>
 
             <p
-              className="text-[#555] leading-[1.8] mb-[36px]"
-              style={{ fontSize: 'clamp(13px, 1vw, 15px)', maxWidth: '380px' }}
+              className="font-satoshi text-[#666] leading-[1.6] mb-[36px]"
+              style={{ fontSize: '24px', fontWeight: 400, maxWidth: '420px' }}
             >
               We are a team of strategists, designers communicators, researchers.
               Together, we believe that progress only happens when you refuse to

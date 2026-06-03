@@ -22,25 +22,25 @@ body {
 
 /* Highlight styles */
 .highlight-pink {
-  background: linear-gradient(to bottom, transparent 50%, #FFB3C8 50%);
+  background: linear-gradient(to bottom, transparent 50%, #F5B4D6 50%);
   padding: 0 4px;
 }
 
 .highlight-green {
-  background: linear-gradient(to bottom, transparent 50%, #A8E6BC 50%);
+  background: linear-gradient(to bottom, transparent 50%, #DDE8D9 50%);
   padding: 0 4px;
 }
 
 .underline-red {
   text-decoration: underline;
-  text-decoration-color: #F97171;
+  text-decoration-color: #FF6B6B;
   text-underline-offset: 6px;
   text-decoration-thickness: 3px;
 }
 
 .underline-red-bold {
   text-decoration: underline;
-  text-decoration-color: #F97171;
+  text-decoration-color: #FF6B6B;
   text-underline-offset: 8px;
   text-decoration-thickness: 4px;
 }
@@ -49,12 +49,17 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 400;
   color: #000;
   text-decoration: none;
-  border-bottom: 1px solid #000;
-  padding-bottom: 2px;
+  border-bottom: 2px solid #000;
+  padding-bottom: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.read-more-link:hover {
+  opacity: 0.6;
 }
 
 .read-more-link::after {
@@ -112,18 +117,21 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid #000;
+  border: 2px solid #000;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s, color 0.2s;
+  transition: all 0.25s ease;
   cursor: pointer;
   flex-shrink: 0;
+  background: transparent;
+  color: #000;
 }
 
 .arrow-btn:hover {
   background: #000;
   color: #fff;
+  transform: translateY(-2px);
 }
 
 /* Subscribe button */
@@ -135,14 +143,19 @@ body {
   padding: 16px 48px;
   font-size: 16px;
   font-weight: 500;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Satoshi', 'Inter', sans-serif;
   cursor: pointer;
-  transition: background 0.2s, transform 0.15s;
+  transition: all 0.25s ease;
 }
 
 .subscribe-btn:hover {
   background: #222;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.subscribe-btn:active {
+  transform: translateY(0);
 }
 
 @media (max-width: 1440px) {

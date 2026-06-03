@@ -7,7 +7,7 @@ export default function Newsletter() {
   return (
     <section
       className="relative w-full overflow-hidden"
-      style={{ background: '#C8D8C4', padding: '100px 0 80px' }}
+      style={{ background: '#DDE8D9', padding: '100px 0 80px' }}
     >
       <div className="max-w-[1600px] mx-auto px-[60px] relative">
 
@@ -30,8 +30,8 @@ export default function Newsletter() {
         {/* Content centered */}
         <div className="text-center relative z-10">
           <h2
-            className="font-satoshi font-bold text-black leading-[1.1] mb-[20px]"
-            style={{ fontSize: 'clamp(44px, 5vw, 80px)' }}
+            className="font-satoshi text-black leading-[1.35] mb-[20px]"
+            style={{ fontSize: '56px', fontWeight: 400 }}
           >
             Subscribe to
             <br />
@@ -39,8 +39,8 @@ export default function Newsletter() {
           </h2>
 
           <p
-            className="text-[#444] mb-[44px]"
-            style={{ fontSize: 'clamp(13px, 1vw, 16px)' }}
+            className="font-satoshi text-[#555] mb-[44px]"
+            style={{ fontSize: '24px', fontWeight: 400 }}
           >
             To make your stay special and even more memorable
           </p>

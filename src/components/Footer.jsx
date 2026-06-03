@@ -34,17 +34,17 @@ export default function Footer() {
           {footerColumns.map((col) => (
             <div key={col.id} id={col.id}>
               <h4
-                className="font-satoshi font-semibold text-black mb-[20px]"
-                style={{ fontSize: '15px' }}
+                className="font-satoshi text-black mb-[20px]"
+                style={{ fontSize: '18px', fontWeight: 400 }}
               >
                 {col.heading}
               </h4>
 
               {col.isContact ? (
                 <div className="flex flex-col gap-[10px]">
-                  <p className="text-[#666] text-[13px] leading-[1.7]">{col.address}</p>
-                  <p className="text-[#666] text-[13px]">{col.phone}</p>
-                  <a href={`mailto:${col.email}`} className="text-[#666] text-[13px] no-underline hover:text-black transition-colors">
+                  <p className="font-satoshi text-[#666]" style={{ fontSize: '18px', fontWeight: 400, lineHeight: '28px' }}>{col.address}</p>
+                  <p className="font-satoshi text-[#666]" style={{ fontSize: '18px', fontWeight: 400 }}>{col.phone}</p>
+                  <a href={`mailto:${col.email}`} className="font-satoshi text-[#666] no-underline hover:text-black transition-colors" style={{ fontSize: '18px', fontWeight: 400 }}>
                     {col.email}
                   </a>
                 </div>
@@ -54,7 +54,8 @@ export default function Footer() {
                     <li key={link}>
                       <a
                         href="#"
-                        className="text-[#666] text-[13px] no-underline hover:text-black transition-colors duration-150"
+                        className="font-satoshi text-[#666] no-underline hover:text-black transition-colors duration-150"
+                        style={{ fontSize: '18px', fontWeight: 400 }}
                       >
                         {link}
                       </a>
@@ -68,7 +69,7 @@ export default function Footer() {
 
         {/* Divider */}
         <div className="border-t border-[#E0E0E0] pt-[24px] text-center">
-          <p className="text-[#999] text-[13px]">©2023 Elementum. All rights reserved</p>
+          <p className="font-satoshi text-[#999]" style={{ fontSize: '18px', fontWeight: 400 }}>©2023 Elementum. All rights reserved</p>
         </div>
       </div>
     </footer>

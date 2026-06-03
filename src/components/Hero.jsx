@@ -42,8 +42,8 @@ export default function Hero() {
         {/* Hero Heading */}
         <div className="relative z-10 text-center max-w-[900px] mx-auto pt-[20px]">
           <h1
-            className="font-satoshi text-black leading-[1.1] tracking-[-0.02em]"
-            style={{ fontSize: 'clamp(52px, 6vw, 100px)', fontWeight: 700 }}
+            className="font-satoshi text-black leading-[1.2] tracking-[-0.02em]"
+            style={{ fontSize: '100px', fontWeight: 400 }}
           >
             The{' '}
             <span className="italic underline-red">thinkers</span>
@@ -59,8 +59,8 @@ export default function Hero() {
 
           {/* Subtitle */}
           <p
-            className="font-satoshi text-[#555] mt-[28px] mx-auto"
-            style={{ maxWidth: '460px', fontSize: 'clamp(14px, 1.1vw, 16px)', lineHeight: 1.7 }}
+            className="font-satoshi text-[#666] mt-[32px] mx-auto"
+            style={{ maxWidth: '520px', fontSize: '24px', fontWeight: 400, lineHeight: '36px' }}
           >
             We are a team of strategists, designers communicators, researchers.
             Together, we belive that progress only highappens when you refuse to

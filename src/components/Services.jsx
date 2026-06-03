@@ -30,8 +30,8 @@ export default function Services() {
         {/* Heading */}
         <div className="mb-[60px] relative">
           <h2
-            className="font-satoshi font-bold text-black leading-[1.05]"
-            style={{ fontSize: 'clamp(48px, 5.5vw, 88px)' }}
+            className="font-satoshi text-black leading-[1.35]"
+            style={{ fontSize: '56px', fontWeight: 400 }}
           >
             What we{' '}
             <span className="underline-red-bold">can</span>
@@ -62,8 +62,8 @@ export default function Services() {
             >
               {/* Left tag */}
               <div
-                className="text-[#888] leading-[1.6]"
-                style={{ fontSize: 'clamp(11px, 0.85vw, 13px)', minWidth: '200px', whiteSpace: 'pre-line' }}
+                className="font-satoshi text-[#888] leading-[1.6]"
+                style={{ fontSize: '16px', fontWeight: 400, minWidth: '240px', whiteSpace: 'pre-line' }}
               >
                 {service.tag}
               </div>
@@ -71,8 +71,8 @@ export default function Services() {
               {/* Center title */}
               <div className="flex-1 flex items-center gap-4">
                 <h3
-                  className="font-satoshi font-medium text-black"
-                  style={{ fontSize: 'clamp(20px, 2.2vw, 36px)' }}
+                  className="font-satoshi text-black"
+                  style={{ fontSize: '32px', fontWeight: 400 }}
                 >
                   {service.badge ? (
                     <>

@@ -18,8 +18,8 @@ export default function Testimonials() {
         {/* Heading */}
         <div className="text-center mb-[60px]">
           <h2
-            className="font-satoshi font-bold text-black leading-[1.1]"
-            style={{ fontSize: 'clamp(32px, 3.8vw, 60px)' }}
+            className="font-satoshi text-black leading-[1.35]"
+            style={{ fontSize: '56px', fontWeight: 400 }}
           >
             What our customer
             <br />
@@ -40,20 +40,20 @@ export default function Testimonials() {
 
           {/* Center testimonial card */}
           <div
-            className="relative flex-1 bg-white rounded-[24px] p-[48px] shadow-lg"
+            className="relative flex-1 bg-testimonial-bg rounded-[32px] p-[48px] shadow-lg"
             style={{ maxWidth: '640px', minWidth: '280px' }}
           >
             {/* Open quote */}
             <div
-              className="text-[#F97171] font-bold mb-[24px]"
+              className="text-[#FF6B6B] font-bold mb-[24px]"
               style={{ fontSize: '72px', lineHeight: 0.8, fontFamily: 'Georgia, serif' }}
             >
               "
             </div>
 
             <p
-              className="text-[#333] leading-[1.9] text-center mb-[24px]"
-              style={{ fontSize: 'clamp(13px, 1.1vw, 16px)' }}
+              className="font-satoshi text-[#333] leading-[1.7] text-center mb-[24px]"
+              style={{ fontSize: '24px', fontWeight: 400 }}
             >
               Elementum delivered the site with inthe timeline
               as they promised. Inthe end, the client found a 50%
@@ -65,7 +65,7 @@ export default function Testimonials() {
 
             {/* Close quote */}
             <div
-              className="text-[#F97171] font-bold text-right"
+              className="text-[#FF6B6B] font-bold text-right"
               style={{ fontSize: '72px', lineHeight: 0.8, fontFamily: 'Georgia, serif' }}
             >
               "

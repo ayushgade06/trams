@@ -41,8 +41,8 @@ export default function Feature2() {
           {/* Right: Text content */}
           <div className="flex-1 min-w-[300px]">
             <h2
-              className="font-satoshi font-bold text-black leading-[1.15] mb-[28px]"
-              style={{ fontSize: 'clamp(32px, 3.5vw, 56px)' }}
+              className="font-satoshi text-black leading-[1.35] mb-[28px]"
+              style={{ fontSize: '56px', fontWeight: 400 }}
             >
               See how we can
               <br />
@@ -50,8 +50,8 @@ export default function Feature2() {
             </h2>
 
             <p
-              className="text-[#555] leading-[1.8] mb-[36px]"
-              style={{ fontSize: 'clamp(13px, 1vw, 15px)', maxWidth: '400px' }}
+              className="font-satoshi text-[#666] leading-[1.6] mb-[36px]"
+              style={{ fontSize: '24px', fontWeight: 400, maxWidth: '440px' }}
             >
               We add a layer of fearless insights and action that allows change
               makers to accelerate their progress in areas such as brand, design

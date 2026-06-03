@@ -7,14 +7,16 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        satoshi: ['Inter', 'sans-serif'],
+        satoshi: ['Satoshi', 'Inter', 'sans-serif'],
+        gerbil: ['Gerbil', 'sans-serif'],
       },
       colors: {
-        'brand-coral': '#F97171',
-        'brand-pink': '#FFD6E0',
-        'brand-green': '#C8F0D0',
-        'brand-purple': '#7B61FF',
-        'brand-sage': '#C8D8C8',
+        'brand-coral': '#FF6B6B',
+        'brand-pink': '#F5B4D6',
+        'brand-green': '#DDE8D9',
+        'brand-purple': '#8D4DE8',
+        'brand-sage': '#DDE8D9',
+        'testimonial-bg': '#EEF2EC',
       },
     },
   },

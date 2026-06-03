@@ -7,7 +7,7 @@ export default function Navbar() {
     <nav className="w-full bg-[#F7F7F7] border-b border-[#E0E0E0]" style={{ height: '100px' }}>
       <div className="max-w-[1600px] mx-auto px-[60px] h-full flex items-center justify-between">
         {/* Logo */}
-        <div className="font-satoshi font-bold text-[22px] text-black tracking-tight select-none">
+        <div className="font-satoshi text-[22px] text-black tracking-tight select-none" style={{ fontWeight: 500 }}>
           Elementum
         </div>
 
@@ -17,7 +17,8 @@ export default function Navbar() {
             <li key={link}>
               <a
                 href="#"
-                className="font-satoshi font-medium text-[18px] leading-[24px] text-black no-underline hover:opacity-60 transition-opacity duration-200"
+                className="font-satoshi text-black no-underline hover:opacity-60 transition-opacity duration-200"
+                style={{ fontSize: '18px', fontWeight: 400 }}
               >
                 {link}
               </a>
@@ -42,7 +43,7 @@ export default function Navbar() {
       {menuOpen && (
         <div className="md:hidden bg-[#F7F7F7] border-t border-[#E0E0E0] px-[60px] py-4 flex flex-col gap-4">
           {['Home', 'Studio', 'Services', 'Contact', "FAQ's"].map((link) => (
-            <a key={link} href="#" className="text-[18px] font-medium text-black no-underline">
+            <a key={link} href="#" className="font-satoshi text-black no-underline" style={{ fontSize: '18px', fontWeight: 400 }}>
               {link}
             </a>
           ))}
