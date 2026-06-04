@@ -1,7 +1,14 @@
+import { useRef } from 'react'
 import image348 from '../../trams/image 348.png'
 import vector2517 from '../../trams/Vector 2517.png'
 import rectangle657 from '../../trams/Rectangle 657.png'
 import vector5 from '../../trams/Vector 5.png'
+
+import { useGSAPEffect } from '../hooks/useGSAP'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const styles = `
   /* ── TABLET: 768px – 1279px ── */
@@ -106,13 +113,92 @@ const styles = `
       display: none !important;
     }
   }
+
+  /* Arrow hover animation */
+  .f1-read-more {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+  }
+  .f1-read-more .f1-arrow-line {
+    transition: width 0.35s ease;
+  }
+  .f1-read-more:hover .f1-arrow-line {
+    width: 120px !important;
+  }
 `
 
 export default function Feature1() {
+  const sectionRef = useRef(null)
+
+  useGSAPEffect((gsap, ScrollTrigger) => {
+    const section = sectionRef.current
+    if (!section) return
+
+    const st = { trigger: section, start: 'top 80%', once: true }
+
+    // Glow blob fades in
+    gsap.fromTo(
+      section.querySelector('.f1-glow'),
+      { opacity: 0 },
+      { opacity: 1, duration: 1.2, ease: 'power2.out', scrollTrigger: st }
+    )
+
+    // Red curve slides up gently
+    gsap.fromTo(
+      section.querySelector('.f1-curve'),
+      { opacity: 0, y: 40 },
+      { opacity: 1, y: 0, duration: 1.1, ease: 'power2.out', scrollTrigger: st }
+    )
+
+    // Underline decoration fades
+    gsap.fromTo(
+      section.querySelector('.f1-underline'),
+      { opacity: 0, scaleX: 0.5, transformOrigin: 'left center' },
+      { opacity: 1, scaleX: 1, duration: 0.9, ease: 'expo.out', delay: 0.25, scrollTrigger: st }
+    )
+
+    // Text content slides from left
+    gsap.fromTo(
+      section.querySelector('.f1-content'),
+      { opacity: 0, x: -60 },
+      { opacity: 1, x: 0, duration: 1.0, ease: 'power3.out', scrollTrigger: st }
+    )
+
+    // Highlighted word subtle pulse
+    gsap.fromTo(
+      section.querySelector('.f1-content h2 span'),
+      { opacity: 0.6 },
+      { opacity: 1, duration: 0.8, ease: 'power2.out', delay: 0.4, scrollTrigger: st }
+    )
+
+    // Read More link fades in
+    gsap.fromTo(
+      section.querySelector('.f1-read-more'),
+      { opacity: 0, x: -20 },
+      { opacity: 1, x: 0, duration: 0.8, ease: 'power2.out', delay: 0.55, scrollTrigger: st }
+    )
+
+    // Image wrap slides from right
+    gsap.fromTo(
+      section.querySelector('.f1-image-wrap'),
+      { opacity: 0, x: 70 },
+      { opacity: 1, x: 0, duration: 1.0, ease: 'power3.out', delay: 0.1, scrollTrigger: st }
+    )
+
+    // Red decorative square rotates in
+    gsap.fromTo(
+      section.querySelector('.f1-red-square'),
+      { opacity: 0, scale: 0.5, rotation: 30 },
+      { opacity: 1, scale: 1, rotation: 12, duration: 0.9, ease: 'expo.out', delay: 0.3, scrollTrigger: st }
+    )
+  }, [])
+
   return (
     <>
       <style>{styles}</style>
-      <section className="relative w-full bg-white overflow-visible">
+      <section className="relative w-full bg-white overflow-visible" ref={sectionRef}>
         <div className="f1-section-inner relative mx-auto max-w-[1600px] px-[80px] pt-[80px] pb-[20px] min-h-[700px]">
 
           {/* Glow blob */}
@@ -178,9 +264,9 @@ export default function Feature1() {
               happens when you refuse to play things safe.
             </p>
 
-            <div className="mt-10 flex items-center gap-4">
+            <div className="f1-read-more mt-10">
               <span className="font-satoshi text-[16px] font-medium">Read more</span>
-              <span className="w-[90px] h-[1px] bg-black" />
+              <span className="f1-arrow-line w-[90px] h-[1px] bg-black" />
             </div>
           </div>
 

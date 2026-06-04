@@ -1,5 +1,6 @@
 // Testimonials Section — "What our customer says About Us"
 
+import { useRef } from 'react'
 import e262 from '../../trams/Ellipse 262.png'
 import e263 from '../../trams/Ellipse 263.png'
 import e264 from '../../trams/Ellipse 264.png'
@@ -12,6 +13,12 @@ import e270 from '../../trams/Ellipse 270.png'
 
 import vector5 from '../../trams/Vector 5.png'
 import line65 from '../../trams/Line 65.png'
+
+import { useGSAPEffect, isMobile } from '../hooks/useGSAP'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const styles = `
   /* ── TABLET: 768px – 1279px ── */
@@ -111,14 +118,131 @@ const styles = `
 `
 
 export default function Testimonials() {
+  const sectionRef = useRef(null)
+
+  useGSAPEffect((gsap, ScrollTrigger) => {
+    const section = sectionRef.current
+    if (!section) return
+    const mobile = isMobile()
+
+    const st = { trigger: section, start: 'top 82%', once: true }
+
+    // Heading fades up
+    gsap.fromTo(
+      section.querySelector('.tst-heading-wrap'),
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 1.0, ease: 'power2.out', scrollTrigger: st }
+    )
+
+    // Quote card fades up with slight elevation
+    gsap.fromTo(
+      section.querySelector('.tst-card'),
+      { opacity: 0, y: 70 },
+      { opacity: 1, y: 0, duration: 1.1, ease: 'power3.out', delay: 0.15, scrollTrigger: st }
+    )
+
+    // Quote marks fade in sequentially
+    gsap.fromTo(
+      section.querySelectorAll('.tst-quote-open, .tst-quote-close'),
+      { opacity: 0, scale: 0.6 },
+      { opacity: 1, scale: 1, duration: 0.7, ease: 'expo.out', stagger: 0.2, delay: 0.4, scrollTrigger: st }
+    )
+
+    // Quote text fades up
+    gsap.fromTo(
+      section.querySelector('.tst-quote-text'),
+      { opacity: 0, y: 24 },
+      { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out', delay: 0.5, scrollTrigger: st }
+    )
+
+    // Decorative underline scaleX reveal
+    gsap.fromTo(
+      section.querySelector('.tst-underline'),
+      { opacity: 0, scaleX: 0, transformOrigin: 'left center' },
+      { opacity: 1, scaleX: 1, duration: 0.9, ease: 'expo.out', delay: 0.2, scrollTrigger: st }
+    )
+
+    // Line65 decoration fades in
+    gsap.fromTo(
+      section.querySelector('.tst-line65'),
+      { opacity: 0, x: 20 },
+      { opacity: 1, x: 0, duration: 0.9, ease: 'power2.out', delay: 0.3, scrollTrigger: st }
+    )
+
+    if (!mobile) {
+      // Left avatars stagger reveal (from left side)
+      const leftAvatars = section.querySelectorAll('.tst-av-l1, .tst-av-l2, .tst-av-l3, .tst-av-l4')
+      gsap.fromTo(
+        leftAvatars,
+        { opacity: 0, x: -40, scale: 0.8 },
+        {
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          duration: 0.85,
+          ease: 'power2.out',
+          stagger: 0.12,
+          delay: 0.3,
+          scrollTrigger: st,
+        }
+      )
+
+      // Right avatars stagger reveal (from right side)
+      const rightAvatars = section.querySelectorAll('.tst-av-r1, .tst-av-r2, .tst-av-r3, .tst-av-r4')
+      gsap.fromTo(
+        rightAvatars,
+        { opacity: 0, x: 40, scale: 0.8 },
+        {
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          duration: 0.85,
+          ease: 'power2.out',
+          stagger: 0.12,
+          delay: 0.3,
+          scrollTrigger: st,
+        }
+      )
+
+      // Subtle floating animation on avatars after reveal
+      const allAvatars = section.querySelectorAll('.avatar-circle')
+      allAvatars.forEach((av, i) => {
+        gsap.to(av, {
+          y: i % 2 === 0 ? -8 : 8,
+          duration: 2.5 + (i * 0.3),
+          ease: 'sine.inOut',
+          repeat: -1,
+          yoyo: true,
+          delay: i * 0.2,
+        })
+      })
+    } else {
+      // Mobile avatar row stagger
+      const mobileAvatars = section.querySelectorAll('.tst-mobile-avatars img')
+      gsap.fromTo(
+        mobileAvatars,
+        { opacity: 0, scale: 0.7 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.65,
+          ease: 'power2.out',
+          stagger: 0.08,
+          delay: 0.4,
+          scrollTrigger: st,
+        }
+      )
+    }
+  }, [])
+
   return (
     <>
       <style>{styles}</style>
-      <section className="tst-section relative w-full py-[100px] overflow-visible">
+      <section className="tst-section relative w-full py-[100px] overflow-visible" ref={sectionRef}>
         <div className="tst-inner mx-auto max-w-[1844px] px-[80px] relative">
 
           {/* Heading */}
-          <div className="text-center mb-[70px]">
+          <div className="tst-heading-wrap text-center mb-[70px]">
             <h2 className="tst-heading font-gerbil text-[56px] leading-[76px] font-[400] text-black max-w-[860px] mx-auto">
               <span className="text-highlight-green">What</span> our customer says{' '}
               <span>About Us</span>

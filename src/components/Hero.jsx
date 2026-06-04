@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import e255 from '../../trams/Ellipse 255.png'
 import e256 from '../../trams/Ellipse 256.png'
 import e257 from '../../trams/Ellipse 257.png'
@@ -13,6 +14,12 @@ import rectangle657 from '../../trams/Rectangle 657 (1).png'
 import rectangle658 from '../../trams/Rectangle 658.png'
 import vector5 from '../../trams/Vector 5.png'
 import ellipse736 from '../../trams/Ellipse 736.png'
+
+import { useGSAPEffect, isMobile } from '../hooks/useGSAP'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const heroStyles = `
   /* ─────────── BASE (desktop ≥ 1280px) ─────────── */
@@ -255,11 +262,108 @@ const tabletPositions = [
 ]
 
 export default function Hero() {
+  const sectionRef = useRef(null)
+
+  useGSAPEffect((gsap) => {
+    const mobile = isMobile()
+    const section = sectionRef.current
+    if (!section) return
+
+    // ── Decorative curves fade in
+    gsap.fromTo(
+      section.querySelectorAll('.hero-curve-outer, .hero-curve-inner'),
+      { opacity: 0, x: -30 },
+      { opacity: 1, x: 0, duration: 1.0, ease: 'power2.out', stagger: 0.15, delay: 0.2 }
+    )
+
+    // ── Purple shape fades in from right
+    gsap.fromTo(
+      section.querySelector('.hero-purple'),
+      { opacity: 0, x: 20 },
+      { opacity: 1, x: 0, duration: 0.9, ease: 'power2.out', delay: 0.4 }
+    )
+
+    // ── Heading slides up
+    gsap.fromTo(
+      section.querySelector('.hero-heading'),
+      { opacity: 0, y: 60 },
+      { opacity: 1, y: 0, duration: 1.1, ease: 'power3.out', delay: 0.1 }
+    )
+
+    // ── Highlight decorative images fade in after heading
+    gsap.fromTo(
+      section.querySelectorAll('.highlight-pink-img, .highlight-green-img, .highlight-underline-img'),
+      { opacity: 0 },
+      { opacity: 1, duration: 0.8, ease: 'power2.out', stagger: 0.15, delay: 0.7 }
+    )
+
+    // ── Description slides up after heading
+    gsap.fromTo(
+      section.querySelector('.hero-description'),
+      { opacity: 0, y: 40 },
+      { opacity: 1, y: 0, duration: 1.0, ease: 'power2.out', delay: 0.45 }
+    )
+
+    // ── Desktop team images stagger reveal
+    const desktopImgs = section.querySelectorAll('.hero-images-desktop img')
+    if (desktopImgs.length && !mobile) {
+      gsap.fromTo(
+        desktopImgs,
+        { opacity: 0, y: 40, scale: 0.88 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.85,
+          ease: 'power2.out',
+          stagger: 0.1,
+          delay: 0.6,
+        }
+      )
+    }
+
+    // ── Tablet team images stagger reveal
+    const tabletImgs = section.querySelectorAll('.hero-images-tablet img')
+    if (tabletImgs.length) {
+      gsap.fromTo(
+        tabletImgs,
+        { opacity: 0, y: 30, scale: 0.9 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.75,
+          ease: 'power2.out',
+          stagger: 0.08,
+          delay: 0.5,
+        }
+      )
+    }
+
+    // ── Mobile team images stagger reveal
+    const mobileImgs = section.querySelectorAll('.hero-images-mobile img')
+    if (mobileImgs.length) {
+      gsap.fromTo(
+        mobileImgs,
+        { opacity: 0, y: 20, scale: 0.9 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.7,
+          ease: 'power2.out',
+          stagger: 0.07,
+          delay: 0.5,
+        }
+      )
+    }
+  }, [])
+
   return (
     <>
       <style>{heroStyles}</style>
 
-      <section className="hero-section">
+      <section className="hero-section" ref={sectionRef}>
 
         {/* Left Decorative Curves */}
         <img src={vector2510} alt=""

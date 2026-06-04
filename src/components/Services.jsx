@@ -1,6 +1,13 @@
+import { useRef } from 'react'
 import vector2516 from '../../trams/Vector 2516.png'
 import vector5 from '../../trams/Vector 5.png'
 import rectangle661 from '../../trams/Rectangle 661.png'
+
+import { useGSAPEffect } from '../hooks/useGSAP'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const styles = `
   /* ─── BASE: desktop vector5 underline on "offer" ─── */
@@ -116,6 +123,14 @@ const styles = `
       display: none !important;
     }
   }
+
+  /* Arrow icon hover */
+  .arrow-btn {
+    transition: transform 0.3s ease;
+  }
+  .service-row:hover .arrow-btn {
+    transform: translateX(6px);
+  }
 `
 
 const services = [
@@ -138,10 +153,61 @@ const services = [
 ]
 
 export default function Services() {
+  const sectionRef = useRef(null)
+
+  useGSAPEffect((gsap, ScrollTrigger) => {
+    const section = sectionRef.current
+    if (!section) return
+
+    const headingST = { trigger: section, start: 'top 80%', once: true }
+
+    // Heading fades up
+    gsap.fromTo(
+      section.querySelector('.svc-heading-wrap'),
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 1.0, ease: 'power2.out', scrollTrigger: headingST }
+    )
+
+    // Underline scaleX reveal
+    gsap.fromTo(
+      section.querySelector('.svc-offer-underline'),
+      { opacity: 0, scaleX: 0, transformOrigin: 'left center' },
+      { opacity: 1, scaleX: 1, duration: 0.8, ease: 'expo.out', delay: 0.3, scrollTrigger: headingST }
+    )
+
+    // Decorative curve fades in
+    gsap.fromTo(
+      section.querySelector('.svc-curve'),
+      { opacity: 0, y: -20 },
+      { opacity: 1, y: 0, duration: 1.1, ease: 'power2.out', delay: 0.2, scrollTrigger: headingST }
+    )
+
+    // Service rows stagger reveal on scroll
+    const rows = section.querySelectorAll('.service-row')
+    rows.forEach((row, i) => {
+      gsap.fromTo(
+        row,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.85,
+          ease: 'power2.out',
+          delay: i * 0.12,
+          scrollTrigger: {
+            trigger: row,
+            start: 'top 88%',
+            once: true,
+          },
+        }
+      )
+    })
+  }, [])
+
   return (
     <>
       <style>{styles}</style>
-      <section className="svc-section relative w-full py-[100px] overflow-visible bg-white">
+      <section className="svc-section relative w-full py-[100px] overflow-visible bg-white" ref={sectionRef}>
         <div className="svc-inner mx-auto max-w-[1618px] px-[80px]">
 
           {/* Heading */}

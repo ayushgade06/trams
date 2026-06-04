@@ -10,6 +10,21 @@
   font-display: swap;
 }
 
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: auto;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -25,7 +40,7 @@ body {
   background: #FFFFFF;
   font-family: 'Satoshi', 'Inter', sans-serif;
   color: #000000;
-  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .font-gerbil {

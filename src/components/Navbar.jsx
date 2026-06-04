@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+import { useGSAPEffect } from '../hooks/useGSAP'
+import { gsap } from 'gsap'
 
 const navLinks = ['Home', 'Studio', 'Services', 'Contact', "FAQ's"]
 
@@ -26,6 +28,24 @@ const styles = `
     transform: translateY(-10px) rotate(-45deg);
   }
 
+  /* Nav link hover underline */
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 1.5px;
+    background: #000;
+    transition: width 0.3s ease;
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
   /* ── TABLET ── */
   @media (min-width: 768px) and (max-width: 1279px) {
     .nav-inner {
@@ -49,17 +69,54 @@ const styles = `
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const navRef = useRef(null)
+
+  useGSAPEffect((gsap) => {
+    const nav = navRef.current
+    if (!nav) return
+
+    // Navbar slides down from top on page load
+    gsap.fromTo(
+      nav,
+      { opacity: 0, y: -24 },
+      { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', delay: 0.05 }
+    )
+
+    // Logo pops in
+    gsap.fromTo(
+      nav.querySelector('.nav-logo'),
+      { opacity: 0, x: -20 },
+      { opacity: 1, x: 0, duration: 0.7, ease: 'power2.out', delay: 0.2 }
+    )
+
+    // Desktop nav links stagger in
+    const links = nav.querySelectorAll('.nav-desktop-link')
+    if (links.length) {
+      gsap.fromTo(
+        links,
+        { opacity: 0, y: -12 },
+        { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out', stagger: 0.08, delay: 0.3 }
+      )
+    }
+
+    // Hamburger fades in
+    gsap.fromTo(
+      nav.querySelector('.nav-hamburger'),
+      { opacity: 0, x: 16 },
+      { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out', delay: 0.35 }
+    )
+  }, [])
 
   return (
     <>
       <style>{styles}</style>
-      <nav className="w-full bg-white relative z-50">
+      <nav className="w-full bg-white relative z-50" ref={navRef}>
 
         {/* Main bar */}
         <div className="nav-inner mx-auto flex h-[80px] lg:h-[100px] max-w-[1920px] items-center justify-between px-5 md:px-10 lg:px-[160px]">
 
           {/* Logo */}
-          <div className="font-gerbil text-[22px] md:text-[24px] lg:text-[28px] leading-[46px] text-black select-none shrink-0">
+          <div className="nav-logo font-gerbil text-[22px] md:text-[24px] lg:text-[28px] leading-[46px] text-black select-none shrink-0">
             Elementum
           </div>
 
@@ -67,7 +124,7 @@ export default function Navbar() {
           <ul className="hidden lg:flex mx-auto items-center gap-[56px] list-none p-0 m-0">
             {navLinks.map((link) => (
               <li key={link}>
-                <a href="#" className="font-satoshi font-medium text-[18px] leading-[24px] text-black no-underline">
+                <a href="#" className="nav-desktop-link nav-link font-satoshi font-medium text-[18px] leading-[24px] text-black no-underline">
                   {link}
                 </a>
               </li>
