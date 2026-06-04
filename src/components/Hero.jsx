@@ -17,78 +17,78 @@ import ellipse736 from '../../trams/Ellipse 736.png'
 export default function Hero() {
   return (
     <section
-      className="relative bg-white overflow-hidden"
+      className="relative bg-white"
       style={{
         width: '1920px',
         height: '1254px',
       }}
     >
-      {/* Decorative background element - Vector 2510 */}
+      {/* Left Decorative Curves */}
       <img
         src={vector2510}
         alt=""
         className="absolute object-contain"
         style={{
-          left: '-140px',
-          top: '130px',
-          width: '220px',
-          height: '520px',
+          left: '-70px',
+          top: '350px',
+          width: '260px',
+          height: '540px',
         }}
       />
 
-      {/* Decorative background element - Vector 2511 */}
       <img
         src={vector2511}
         alt=""
         className="absolute object-contain"
         style={{
-          left: '-65px',
-          top: '230px',
-          width: '120px',
-          height: '320px',
+          left: '60px',
+          top: '370px',
+          width: '140px',
+          height: '450px',
         }}
       />
 
-      {/* Decorative element - Ellipse 736 */}
+      {/* Purple Shape */}
       <img
         src={ellipse736}
         alt=""
         className="absolute object-contain"
         style={{
-          left: '1754.24px',
-          top: '180px',
-          width: '155.76px',
-          height: '155.76px',
-          transform: 'rotate(-60deg)',
+          left: '1650px',
+          top: '400px',
+          width: '120px',
+          height: '120px',
         }}
       />
 
-      {/* Main heading */}
+      {/* Heading */}
       <h1
-        className="absolute text-black font-normal"
+        className="absolute text-black font-normal text-center"
         style={{
           fontFamily: 'Gerbil',
           fontSize: '100px',
           lineHeight: '126px',
-          left: '308px',
-          top: '243px',
           width: '1305px',
-          height: '378px',
+          left: '50%',
+          top: '180px',
+          transform: 'translateX(-50%)',
           margin: 0,
         }}
       >
         The{' '}
         <span className="relative inline-block">
           thinkers
+
           <img
             src={vector5}
             alt=""
-            className="absolute object-contain"
+            className="absolute pointer-events-none"
             style={{
-              left: '666px',
-              top: '333px',
-              width: '594px',
-              height: '50px',
+              left: '-10px',
+              bottom: '-250px',
+              width: '600px',
+              height: '500px',
+              objectFit: 'contain',
             }}
           />
         </span>{' '}
@@ -99,15 +99,16 @@ export default function Hero() {
           <img
             src={rectangle657}
             alt=""
-            className="absolute object-cover -z-10"
+            className="absolute -z-10"
             style={{
-              left: '1235px',
-              top: '367px',
-              width: '405px',
-              height: '137px',
+              left: '120px',
+              top: '20px',
+              width: '1220px',
+              height: '105px',
+              objectFit: 'contain',
             }}
           />
-          <span className="relative">changing</span>
+          changing
         </span>
         <br />
         the{' '}
@@ -115,30 +116,31 @@ export default function Hero() {
           <img
             src={rectangle658}
             alt=""
-            className="absolute object-cover -z-10"
+            className="absolute -z-10"
             style={{
-              left: '561px',
-              top: '498px',
-              width: '456px',
-              height: '109px',
+              left: '10px',
+              top: '0px',
+              width: '3000px',
+              height: '150px',
+              objectFit: 'contain',
             }}
           />
-          <span className="relative">status</span>
+          status
         </span>{' '}
         Quo with
       </h1>
 
-      {/* Paragraph text */}
+      {/* Description */}
       <p
-        className="absolute text-black font-normal"
+        className="absolute text-black font-normal text-center"
         style={{
           fontFamily: 'Satoshi',
           fontSize: '24px',
           lineHeight: '36px',
-          left: '545px',
-          top: '648px',
           width: '831px',
-          height: '72px',
+          left: '50%',
+          top: '560px',
+          transform: 'translateX(-50%)',
           margin: 0,
         }}
       >
@@ -147,14 +149,41 @@ export default function Hero() {
         things safe.
       </p>
 
-      {/* Avatar images */}
+      {/* Team Images */}
+
+      <img
+        src={e262}
+        alt=""
+        className="absolute rounded-full object-cover"
+        style={{
+          left: '70px',
+          top: '860px',
+          width: '226px',
+          height: '226px',
+        }}
+      />
+
+      <img
+        src={e261}
+        alt=""
+        className="absolute rounded-full object-cover"
+        style={{
+          left: '210px',
+          top: '840px',
+          width: '226px',
+          height: '226px',
+          border: '8px solid #FFFFFF',
+          boxSizing: 'border-box',
+        }}
+      />
+
       <img
         src={e255}
         alt=""
         className="absolute rounded-full object-cover"
         style={{
-          left: '553px',
-          top: '801px',
+          left: '540px',
+          top: '700px',
           width: '226px',
           height: '226px',
         }}
@@ -165,20 +194,8 @@ export default function Hero() {
         alt=""
         className="absolute rounded-full object-cover"
         style={{
-          left: '677px',
-          top: '1027px',
-          width: '226px',
-          height: '226px',
-        }}
-      />
-
-      <img
-        src={e262}
-        alt=""
-        className="absolute rounded-full object-cover"
-        style={{
-          left: '38px',
-          top: '996px',
+          left: '670px',
+          top: '930px',
           width: '226px',
           height: '226px',
         }}
@@ -189,8 +206,8 @@ export default function Hero() {
         alt=""
         className="absolute rounded-full object-cover"
         style={{
-          left: '977px',
-          top: '856px',
+          left: '980px',
+          top: '760px',
           width: '226px',
           height: '226px',
         }}
@@ -201,8 +218,8 @@ export default function Hero() {
         alt=""
         className="absolute rounded-full object-cover"
         style={{
-          left: '1144px',
-          top: '940px',
+          left: '1130px',
+          top: '860px',
           width: '226px',
           height: '226px',
           border: '8px solid #FFFFFF',
@@ -215,8 +232,8 @@ export default function Hero() {
         alt=""
         className="absolute rounded-full object-cover"
         style={{
-          left: '1414px',
-          top: '801px',
+          left: '1400px',
+          top: '690px',
           width: '226px',
           height: '226px',
         }}
@@ -227,24 +244,10 @@ export default function Hero() {
         alt=""
         className="absolute rounded-full object-cover"
         style={{
-          left: '1656px',
-          top: '960px',
+          left: '1650px',
+          top: '860px',
           width: '226px',
           height: '226px',
-        }}
-      />
-
-      <img
-        src={e261}
-        alt=""
-        className="absolute rounded-full object-cover"
-        style={{
-          left: '199px',
-          top: '940px',
-          width: '226px',
-          height: '226px',
-          border: '8px solid #FFFFFF',
-          boxSizing: 'border-box',
         }}
       />
     </section>

@@ -5,54 +5,104 @@ import vector5 from '../../trams/Vector 5.png'
 
 export default function Feature1() {
   return (
-    <section className="relative w-full overflow-visible bg-white px-[160px] py-[80px]">
-      <div className="relative mx-auto w-full max-w-[1599px] h-[600px]">
+    <section className="relative w-full bg-white overflow-visible">
+      <div className="relative mx-auto max-w-[1600px] px-[80px] pt-[80px] pb-[20px] min-h-[700px]">
+
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            left: '600px',
+            top: '-150px',
+            width: '500px',
+            height: '500px',
+            background:
+              'radial-gradient(circle, rgba(255, 125, 125, 0.30) 0%, rgba(255, 125, 125, 0.08) 35%, rgba(255, 125, 125, 0) 75%)',
+            zIndex: 0,
+          }}
+        />
+
+        {/* Large connecting red curve */}
         <img
           src={vector2517}
           alt=""
-          className="absolute left-[450px] top-[430px] w-[1439.87px] h-[697.6px] object-contain decorative"
+          className="absolute pointer-events-none z-0"
+          style={{
+            right: '-60px',
+            top: '270px',
+            width: '1400px',
+            height: '800px',
+            objectFit: 'contain',
+          }}
         />
 
+        {/* Yellow underline */}
         <img
           src={vector5}
           alt=""
-          className="absolute left-[4px] top-[184.5px] w-[371px] h-[30px] object-contain decorative"
+          className="absolute left-[78px] top-[164px] w-[330px] object-contain z-10"
         />
 
-        <img
-          src={rectangle657}
-          alt=""
-          className="absolute left-[520px] top-[200.5px] w-[217px] h-[81px] object-contain decorative"
-        />
-
-        <div className="absolute left-[0px] top-[129.5px] w-[737px]">
-          <h2 className="font-gerbil text-[56px] leading-[72px] font-normal text-black max-w-[724px]">
-            Tomorrow should be better than{' '}
-            <span className="relative inline-flex">
+        {/* Content */}
+        <div className="absolute left-[80px] top-[110px] z-20">
+          <h2
+            className="font-gerbil text-black font-normal"
+            style={{
+              fontSize: '56px',
+              lineHeight: '68px',
+              maxWidth: '750px',
+            }}
+          >
+            Tomorrow should
+            <br />
+            be better than {"  "}
+            <span className="relative inline-block">
               <img
                 src={rectangle657}
                 alt=""
-                className="absolute inset-0 w-full h-full object-contain decorative"
+                className="absolute inset-0 w-full h-full object-fill -z-10"
               />
-              <span className="relative">today</span>
+              today
             </span>
           </h2>
 
-          <p className="mt-[24px] w-[715px] font-satoshi text-[24px] leading-[36px] text-black">
-            We are a team of strategists, designers communicators, researchers.
-            Together, we believe that progress only happens when you refuse to
-            play things safe.
+          <p
+            className="mt-6 font-satoshi text-black"
+            style={{
+              fontSize: '18px',
+              lineHeight: '30px',
+              maxWidth: '540px',
+            }}
+          >
+            We are a team of strategists, designers communicators,
+            researchers. Together, we believe that progress only
+            happens when you refuse to play things safe.
           </p>
 
-          <div className="mt-[44px] flex items-center gap-[16px]">
-            <span className="font-satoshi text-[20px] font-medium leading-[24px] text-black">Read more</span>
-            <span className="block w-[144px] h-[1px] bg-black" />
+          <div className="mt-10 flex items-center gap-4">
+            <span className="font-satoshi text-[16px] font-medium">
+              Read more
+            </span>
+            <span className="w-[90px] h-[1px] bg-black" />
           </div>
         </div>
 
-        <div className="absolute right-[0px] top-[0px] w-[600px] h-[600px] rounded-full overflow-hidden">
-          <img src={image348} alt="Business meeting" className="w-full h-full object-cover" />
+        {/* Top Image */}
+        <div className="absolute right-[120px] top-[20px] w-[420px] h-[420px]">
+
+          {/* Red square BEHIND image */}
+          <div
+            className="absolute right-[-20px] top-[10px] w-[130px] h-[130px] bg-[#FF7B7B] rotate-[12deg]"
+          />
+
+          <div className="relative z-10 w-full h-full rounded-full overflow-hidden">
+            <img
+              src={image348}
+              alt="Business meeting"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
+
       </div>
     </section>
   )

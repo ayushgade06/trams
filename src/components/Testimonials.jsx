@@ -9,6 +9,7 @@ import e267 from '../../trams/Ellipse 267.png'
 import e268 from '../../trams/Ellipse 268.png'
 import e269 from '../../trams/Ellipse 269.png'
 import e270 from '../../trams/Ellipse 270.png'
+
 import vector5 from '../../trams/Vector 5.png'
 import line65 from '../../trams/Line 65.png'
 
@@ -18,17 +19,22 @@ export default function Testimonials() {
       <div className="mx-auto max-w-[1844px] px-[80px] relative">
         <div className="text-center mb-[70px]">
           <h2 className="font-gerbil text-[56px] leading-[76px] font-[400] text-black max-w-[860px] mx-auto">
-            <span className="text-highlight-green">What</span> our customer says <span className="underline-yellow">About Us</span>
+            <span className="text-highlight-green">What</span> our customer says <span>About Us</span>
           </h2>
         </div>
 
         <div className="relative mx-auto max-w-[980px]">
           <img
-            src={vector5}
-            alt=""
-            className="decorative absolute left-[-60px] top-[20px] hidden xl:block"
-            style={{ width: '160px', zIndex: 1 }}
-          />
+  src={vector5}
+  alt=""
+  className="decorative absolute left-[400px] top-[-110px] hidden md:block"
+  style={{
+    width: '350px',
+    height: '100px',
+    objectFit: 'contain',
+    zIndex: 20,
+  }}
+/>   
           <img
             src={line65}
             alt=""
@@ -52,47 +58,108 @@ export default function Testimonials() {
           </div>
 
           <img
-            src={e262}
-            alt="Customer"
-            className="avatar-circle absolute"
-            style={{ width: '76px', height: '76px', left: '-90px', top: '18px', zIndex: 3 }}
-          />
-          <img
-            src={e263}
-            alt="Customer"
-            className="avatar-circle absolute"
-            style={{ width: '54px', height: '54px', left: '-48px', top: '210px', opacity: 0.8, zIndex: 3 }}
-          />
-          <img
-            src={e264}
-            alt="Customer"
-            className="avatar-circle absolute"
-            style={{ width: '64px', height: '64px', left: '-18px', top: '320px', zIndex: 2 }}
-          />
-          <img
-            src={e265}
-            alt="Customer"
-            className="avatar-circle absolute"
-            style={{ width: '62px', height: '62px', right: '-70px', top: '20px', opacity: 0.8, zIndex: 3 }}
-          />
-          <img
-            src={e268}
-            alt="Customer"
-            className="avatar-circle absolute"
-            style={{ width: '96px', height: '96px', right: '-42px', top: '160px', zIndex: 3 }}
-          />
-          <img
-            src={e269}
-            alt="Customer"
-            className="avatar-circle absolute"
-            style={{ width: '132px', height: '132px', right: '-4px', top: '280px', zIndex: 2 }}
-          />
-        </div>
+  src={e267}
+  alt="Customer"
+  className="avatar-circle absolute"
+  style={{
+    width: '100px',
+    height: '100px',
+    left: '-400px',
+    top: '350px',
+    zIndex: 3,
+  }}
+/>
 
-        <div className="flex justify-center gap-[18px] mt-[52px] flex-wrap">
-          <img src={e266} alt="Customer" className="avatar-circle" style={{ width: '56px', height: '56px' }} />
-          <img src={e267} alt="Customer" className="avatar-circle" style={{ width: '56px', height: '56px' }} />
-          <img src={e270} alt="Customer" className="avatar-circle" style={{ width: '56px', height: '56px' }} />
+          <img
+  src={e266}
+  alt="Customer"
+  className="avatar-circle absolute"
+  style={{
+    width: '76px',
+    height: '76px',
+    left: '-400px',
+    top: '20px',
+    zIndex: 3,
+  }}
+/>
+
+<img
+  src={e268}
+  alt="Customer"
+  className="avatar-circle absolute"
+  style={{
+    width: '180px',
+    height: '180px',
+    left: '-280px',
+    top: '110px',
+    zIndex: 3,
+  }}
+/>
+
+<img
+  src={e263}
+  alt="Customer"
+  className="avatar-circle absolute"
+  style={{
+    width: '90px',
+    height: '90px',
+    left: '-240px',
+    top: '-150px',
+    zIndex: 3,
+  }}
+/>
+
+<img
+  src={e264}
+  alt="Customer"
+  className="avatar-circle absolute"
+  style={{
+    width: '90px',
+    height: '90px',
+    right: '-150px',
+    top: '-80px',
+    zIndex: 3,
+  }}
+/>
+
+<img
+  src={e265}
+  alt="Customer"
+  className="avatar-circle absolute"
+  style={{
+    width: '100px',
+    height: '100px',
+    right: '-230px',
+    top: '80px',
+    zIndex: 3,
+  }}
+/>
+
+<img
+  src={e270}
+  alt="Customer"
+  className="avatar-circle absolute"
+  style={{
+    width: '120px',
+    height: '120px',
+    right: '-320px',
+    top: '-200px',
+    zIndex: 3,
+  }}
+/>
+
+<img
+  src={e269}
+  alt="Customer"
+  className="avatar-circle absolute"
+  style={{
+    width: '250px',
+    height: '250px',
+    right: '-400px',
+    top: '250px',
+    zIndex: 3,
+  }}
+/>
         </div>
       </div>
     </section>
