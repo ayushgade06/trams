@@ -1,5 +1,3 @@
-// Hero Section — thinkers, doers, status quo
-
 import e255 from '../../trams/Ellipse 255.png'
 import e256 from '../../trams/Ellipse 256.png'
 import e257 from '../../trams/Ellipse 257.png'
@@ -7,127 +5,248 @@ import e258 from '../../trams/Ellipse 258.png'
 import e259 from '../../trams/Ellipse 259.png'
 import e260 from '../../trams/Ellipse 260.png'
 import e261 from '../../trams/Ellipse 261.png'
+import e262 from '../../trams/Ellipse 262.png'
 
-import squiggleTop from '../../trams/Vector 2511.png'
-import squiggleBottom from '../../trams/Vector 2510.png'
-import polygon3 from '../../trams/Polygon 3.png'
-import rect657 from '../../trams/Rectangle 657.png'
-import rect661 from '../../trams/Rectangle 661.png'
+import vector2511 from '../../trams/Vector 2511.png'
+import vector2510 from '../../trams/Vector 2510.png'
+import rectangle657 from '../../trams/Rectangle 657 (1).png'
+import rectangle658 from '../../trams/Rectangle 658.png'
+import vector5 from '../../trams/Vector 5.png'
 import ellipse736 from '../../trams/Ellipse 736.png'
 
 export default function Hero() {
   return (
-    <section className="relative w-full overflow-visible" style={{ minHeight: '1011px' }}>
-      <div className="relative mx-auto px-[80px] pt-[120px] max-w-[1844px]">
+    <section
+      className="relative bg-white overflow-hidden"
+      style={{
+        width: '1920px',
+        height: '1254px',
+      }}
+    >
+      {/* Decorative background element - Vector 2510 */}
+      <img
+        src={vector2510}
+        alt=""
+        className="absolute object-contain"
+        style={{
+          left: '-140px',
+          top: '130px',
+          width: '220px',
+          height: '520px',
+        }}
+      />
 
-        <img
-          src={squiggleTop}
-          alt=""
-          className="decorative absolute"
-          style={{ left: '-30px', top: '140px', width: '100px', zIndex: 1 }}
-        />
+      {/* Decorative background element - Vector 2511 */}
+      <img
+        src={vector2511}
+        alt=""
+        className="absolute object-contain"
+        style={{
+          left: '-65px',
+          top: '230px',
+          width: '120px',
+          height: '320px',
+        }}
+      />
 
-        <img
-          src={polygon3}
-          alt=""
-          className="decorative absolute"
-          style={{ right: '54px', top: '16px', width: '90px', zIndex: 1 }}
-        />
+      {/* Decorative element - Ellipse 736 */}
+      <img
+        src={ellipse736}
+        alt=""
+        className="absolute object-contain"
+        style={{
+          left: '1754.24px',
+          top: '180px',
+          width: '155.76px',
+          height: '155.76px',
+          transform: 'rotate(-60deg)',
+        }}
+      />
 
-        <img
-          src={rect661}
-          alt=""
-          className="decorative absolute"
-          style={{ right: '160px', top: '120px', width: '92px', zIndex: 1 }}
-        />
-
-        <img
-          src={rect657}
-          alt=""
-          className="decorative absolute"
-          style={{ right: '280px', top: '220px', width: '74px', zIndex: 2 }}
-        />
-
-        <div className="relative z-10 mx-auto text-center max-w-[1305px]">
-          <h1
-            className="font-gerbil text-[100px] leading-[126px] tracking-[0] text-black"
-            style={{ fontWeight: 400 }}
-          >
-            The <span className="underline-yellow">thinkers</span> and
-            <br />
-            doers were <span className="text-highlight-pink">changing</span>
-            <br />
-            the <span className="text-highlight-green">status</span> Quo with
-          </h1>
-
-          <p
-            className="font-satoshi text-[24px] leading-[36px] text-[#000] mx-auto mt-[34px]"
-            style={{ maxWidth: '840px' }}
-          >
-            We are a team of strategists, designers communicators, researchers.
-            Together, we believe that progress only happens when you refuse to
-            play things safe.
-          </p>
-        </div>
-
-        <div className="relative w-full h-[560px] mt-[72px]">
+      {/* Main heading */}
+      <h1
+        className="absolute text-black font-normal"
+        style={{
+          fontFamily: 'Gerbil',
+          fontSize: '100px',
+          lineHeight: '126px',
+          left: '308px',
+          top: '243px',
+          width: '1305px',
+          height: '378px',
+          margin: 0,
+        }}
+      >
+        The{' '}
+        <span className="relative inline-block">
+          thinkers
           <img
-            src={e255}
-            alt="Team member"
-            className="avatar-circle float-1 absolute"
-            style={{ width: '130px', height: '130px', left: '8%', top: '200px', zIndex: 4 }}
-          />
-          <img
-            src={e256}
-            alt="Team member"
-            className="avatar-circle float-2 absolute"
-            style={{ width: '116px', height: '116px', left: '3%', top: '260px', zIndex: 3 }}
-          />
-          <img
-            src={e258}
-            alt="Team member"
-            className="avatar-circle float-3 absolute"
-            style={{ width: '148px', height: '148px', left: '24%', top: '210px', zIndex: 4 }}
-          />
-          <img
-            src={e257}
-            alt="Team member"
-            className="avatar-circle float-4 absolute"
-            style={{ width: '170px', height: '170px', left: '44%', top: '110px', zIndex: 5 }}
-          />
-          <img
-            src={e259}
-            alt="Team member"
-            className="avatar-circle float-5 absolute"
-            style={{ width: '135px', height: '135px', left: '56%', top: '190px', zIndex: 4 }}
-          />
-          <img
-            src={e260}
-            alt="Team member"
-            className="avatar-circle float-6 absolute"
-            style={{ width: '120px', height: '120px', right: '20%', top: '92px', zIndex: 3 }}
-          />
-          <img
-            src={e261}
-            alt="Team member"
-            className="avatar-circle float-7 absolute"
-            style={{ width: '160px', height: '160px', right: '0', top: '242px', zIndex: 4 }}
-          />
-
-          <img
-            src={ellipse736}
+            src={vector5}
             alt=""
-            className="decorative absolute"
-            style={{ width: '24px', height: '24px', left: '16%', top: '320px', zIndex: 2 }}
+            className="absolute object-contain"
+            style={{
+              left: '666px',
+              top: '333px',
+              width: '594px',
+              height: '50px',
+            }}
           />
+        </span>{' '}
+        and
+        <br />
+        doers were{' '}
+        <span className="relative inline-block">
           <img
-            src={squiggleBottom}
+            src={rectangle657}
             alt=""
-            className="decorative absolute"
-            style={{ width: '120px', right: '8%', top: '330px', zIndex: 1 }}
+            className="absolute object-cover -z-10"
+            style={{
+              left: '1235px',
+              top: '367px',
+              width: '405px',
+              height: '137px',
+            }}
           />
-        </div>
-      </div>
+          <span className="relative">changing</span>
+        </span>
+        <br />
+        the{' '}
+        <span className="relative inline-block">
+          <img
+            src={rectangle658}
+            alt=""
+            className="absolute object-cover -z-10"
+            style={{
+              left: '561px',
+              top: '498px',
+              width: '456px',
+              height: '109px',
+            }}
+          />
+          <span className="relative">status</span>
+        </span>{' '}
+        Quo with
+      </h1>
+
+      {/* Paragraph text */}
+      <p
+        className="absolute text-black font-normal"
+        style={{
+          fontFamily: 'Satoshi',
+          fontSize: '24px',
+          lineHeight: '36px',
+          left: '545px',
+          top: '648px',
+          width: '831px',
+          height: '72px',
+          margin: 0,
+        }}
+      >
+        We are a team of strategists, designers communicators, researchers.
+        Together, we believe that progress only happens when you refuse to play
+        things safe.
+      </p>
+
+      {/* Avatar images */}
+      <img
+        src={e255}
+        alt=""
+        className="absolute rounded-full object-cover"
+        style={{
+          left: '553px',
+          top: '801px',
+          width: '226px',
+          height: '226px',
+        }}
+      />
+
+      <img
+        src={e256}
+        alt=""
+        className="absolute rounded-full object-cover"
+        style={{
+          left: '677px',
+          top: '1027px',
+          width: '226px',
+          height: '226px',
+        }}
+      />
+
+      <img
+        src={e262}
+        alt=""
+        className="absolute rounded-full object-cover"
+        style={{
+          left: '38px',
+          top: '996px',
+          width: '226px',
+          height: '226px',
+        }}
+      />
+
+      <img
+        src={e257}
+        alt=""
+        className="absolute rounded-full object-cover"
+        style={{
+          left: '977px',
+          top: '856px',
+          width: '226px',
+          height: '226px',
+        }}
+      />
+
+      <img
+        src={e258}
+        alt=""
+        className="absolute rounded-full object-cover"
+        style={{
+          left: '1144px',
+          top: '940px',
+          width: '226px',
+          height: '226px',
+          border: '8px solid #FFFFFF',
+          boxSizing: 'border-box',
+        }}
+      />
+
+      <img
+        src={e259}
+        alt=""
+        className="absolute rounded-full object-cover"
+        style={{
+          left: '1414px',
+          top: '801px',
+          width: '226px',
+          height: '226px',
+        }}
+      />
+
+      <img
+        src={e260}
+        alt=""
+        className="absolute rounded-full object-cover"
+        style={{
+          left: '1656px',
+          top: '960px',
+          width: '226px',
+          height: '226px',
+        }}
+      />
+
+      <img
+        src={e261}
+        alt=""
+        className="absolute rounded-full object-cover"
+        style={{
+          left: '199px',
+          top: '940px',
+          width: '226px',
+          height: '226px',
+          border: '8px solid #FFFFFF',
+          boxSizing: 'border-box',
+        }}
+      />
     </section>
   )
 }
