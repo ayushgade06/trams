@@ -3,19 +3,37 @@ import vector5 from '../../trams/Vector 5.png'
 import rectangle661 from '../../trams/Rectangle 661.png'
 
 const styles = `
+  /* ─── BASE: desktop vector5 underline on "offer" ─── */
+  .svc-offer-underline {
+    position: absolute;
+    left: -4px;
+    bottom: -10px;
+    width: 140px;
+    height: 20px;
+    object-fit: contain;
+    pointer-events: none;
+  }
+
   /* ── TABLET: 768px – 1279px ── */
   @media (min-width: 768px) and (max-width: 1279px) {
-    .svc-inner {
-      padding-left: 48px !important;
-      padding-right: 48px !important;
-    }
     .svc-section {
       padding-top: 72px !important;
       padding-bottom: 72px !important;
     }
+    .svc-inner {
+      padding-left: 48px !important;
+      padding-right: 48px !important;
+    }
     .svc-heading {
       font-size: 42px !important;
       line-height: 56px !important;
+    }
+    /* Scale underline to match smaller font */
+    .svc-offer-underline {
+      width: 100px !important;
+      height: 16px !important;
+      bottom: -8px !important;
+      left: -2px !important;
     }
     .svc-row {
       grid-template-columns: 160px 1fr auto !important;
@@ -38,6 +56,12 @@ const styles = `
       width: 80px !important;
       height: 200px !important;
     }
+    .svc-curve {
+      right: -20px !important;
+      top: -160px !important;
+      width: 700px !important;
+      height: 300px !important;
+    }
   }
 
   /* ── MOBILE: < 768px ── */
@@ -50,12 +74,23 @@ const styles = `
       padding-left: 20px !important;
       padding-right: 20px !important;
     }
+    .svc-heading-wrap {
+      margin-bottom: 36px !important;
+    }
     .svc-heading {
       font-size: clamp(32px, 8vw, 44px) !important;
       line-height: 1.25 !important;
     }
-    .svc-heading-wrap {
-      margin-bottom: 36px !important;
+    /* Underline proportional to word at mobile font size */
+    .svc-offer-underline {
+      width: 70% !important;
+      height: auto !important;
+      max-height: 14px !important;
+      bottom: -6px !important;
+      left: 0 !important;
+    }
+    .svc-curve {
+      display: none !important;
     }
     .svc-row {
       display: flex !important;
@@ -78,9 +113,6 @@ const styles = `
       align-self: flex-end !important;
     }
     .svc-badge {
-      display: none !important;
-    }
-    .svc-curve {
       display: none !important;
     }
   }
@@ -119,23 +151,17 @@ export default function Services() {
               <br />
               <span className="relative inline-block">
                 offer
+                {/* vector5 underline — scales via media query class */}
                 <img
                   src={vector5}
                   alt=""
-                  className="absolute pointer-events-none"
-                  style={{
-                    left: '-4px',
-                    bottom: '-10px',
-                    width: '140px',
-                    height: '20px',
-                    objectFit: 'contain',
-                  }}
+                  className="svc-offer-underline absolute"
                 />
               </span>{' '}
               you!
             </h2>
 
-            {/* Red decorative curve */}
+            {/* Red decorative curve — hidden on mobile via class */}
             <img
               src={vector2516}
               alt=""

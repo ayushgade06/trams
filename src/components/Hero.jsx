@@ -15,6 +15,7 @@ import vector5 from '../../trams/Vector 5.png'
 import ellipse736 from '../../trams/Ellipse 736.png'
 
 const heroStyles = `
+  /* ─────────── BASE (desktop ≥ 1280px) ─────────── */
   .hero-section {
     position: relative;
     background: white;
@@ -22,7 +23,35 @@ const heroStyles = `
     height: 1254px;
   }
 
-  /* ── TABLET: 768px – 1279px ── */
+  /* highlights sit on top of text at desktop via original absolute values */
+  .hero-section .highlight-pink-img {
+    position: absolute;
+    left: 120px;
+    top: 20px;
+    width: 1220px;
+    height: 105px;
+    object-fit: contain;
+    z-index: -1;
+  }
+  .hero-section .highlight-green-img {
+    position: absolute;
+    left: 10px;
+    top: 0px;
+    width: 3000px;
+    height: 150px;
+    object-fit: contain;
+    z-index: -1;
+  }
+  .hero-section .highlight-underline-img {
+    position: absolute;
+    left: -10px;
+    bottom: -250px;
+    width: 600px;
+    height: 500px;
+    object-fit: contain;
+  }
+
+  /* ─────────── TABLET: 768px – 1279px ─────────── */
   @media (min-width: 768px) and (max-width: 1279px) {
     .hero-section {
       width: 100%;
@@ -30,6 +59,8 @@ const heroStyles = `
       overflow: hidden;
       padding-bottom: 60px;
     }
+
+    /* Decorative curves — scale with viewport */
     .hero-curve-outer {
       left: -3% !important;
       top: 28% !important;
@@ -42,6 +73,8 @@ const heroStyles = `
       width: 7% !important;
       height: auto !important;
     }
+
+    /* Purple blob */
     .hero-purple {
       left: auto !important;
       right: 2% !important;
@@ -49,6 +82,8 @@ const heroStyles = `
       width: 7vw !important;
       height: auto !important;
     }
+
+    /* Heading — flow, centered */
     .hero-heading {
       position: relative !important;
       left: auto !important;
@@ -60,24 +95,32 @@ const heroStyles = `
       font-size: 6vw !important;
       line-height: 1.26 !important;
     }
-    .hero-heading .highlight-underline {
-      bottom: -140% !important;
-      width: 80% !important;
-      height: auto !important;
-      left: -5% !important;
+
+    /* Highlight images: fill parent span exactly */
+    .hero-heading .highlight-pink-img {
+      left: -4px !important;
+      top: 4px !important;
+      width: calc(100% + 8px) !important;
+      height: calc(100% - 4px) !important;
+      object-fit: fill !important;
     }
-    .hero-heading .highlight-pink {
-      left: 8% !important;
-      top: 10% !important;
-      width: 160% !important;
-      height: 80% !important;
-    }
-    .hero-heading .highlight-green {
-      left: 2% !important;
+    .hero-heading .highlight-green-img {
+      left: -4px !important;
       top: 0 !important;
-      width: 115% !important;
+      width: calc(100% + 8px) !important;
       height: 100% !important;
+      object-fit: fill !important;
     }
+    /* Underline sits just below the word */
+    .hero-heading .highlight-underline-img {
+      left: 0 !important;
+      bottom: -18% !important;
+      width: 100% !important;
+      height: auto !important;
+      max-height: 30px;
+    }
+
+    /* Description */
     .hero-description {
       position: relative !important;
       left: auto !important;
@@ -88,12 +131,13 @@ const heroStyles = `
       font-size: 2vw !important;
       line-height: 1.5 !important;
     }
+
     .hero-images-desktop { display: none !important; }
     .hero-images-mobile  { display: none !important; }
-    .hero-images-tablet  { display: flex !important; }
+    .hero-images-tablet  { display: block !important; }
   }
 
-  /* ── MOBILE: < 768px ── */
+  /* ─────────── MOBILE: < 768px ─────────── */
   @media (max-width: 767px) {
     .hero-section {
       width: 100%;
@@ -101,10 +145,14 @@ const heroStyles = `
       overflow: hidden;
       padding-bottom: 40px;
     }
+
+    /* Hide decorative curves entirely — they bleed off-screen */
     .hero-curve-outer,
     .hero-curve-inner {
       display: none !important;
     }
+
+    /* Purple blob — small, top-right corner */
     .hero-purple {
       left: auto !important;
       right: 3% !important;
@@ -112,51 +160,62 @@ const heroStyles = `
       width: 11vw !important;
       height: auto !important;
     }
+
+    /* Heading */
     .hero-heading {
       position: relative !important;
       left: auto !important;
       top: auto !important;
       transform: none !important;
-      width: 90% !important;
+      width: 92% !important;
       margin: 0 auto !important;
-      padding-top: 64px;
+      padding-top: 56px;
       font-size: clamp(28px, 8vw, 52px) !important;
       line-height: 1.24 !important;
     }
-    .hero-heading .highlight-underline {
-      bottom: -100% !important;
-      width: 90% !important;
-      height: auto !important;
-      left: -5% !important;
+
+    /* Highlight images: fill parent span exactly, no overflow */
+    .hero-heading .highlight-pink-img {
+      left: -4px !important;
+      top: 4px !important;
+      width: calc(100% + 8px) !important;
+      height: calc(100% - 4px) !important;
+      object-fit: fill !important;
     }
-    .hero-heading .highlight-pink {
-      left: 5% !important;
-      top: 5% !important;
-      width: 220% !important;
-      height: 90% !important;
-    }
-    .hero-heading .highlight-green {
-      left: 2% !important;
+    .hero-heading .highlight-green-img {
+      left: -4px !important;
       top: 0 !important;
-      width: 120% !important;
+      width: calc(100% + 8px) !important;
       height: 100% !important;
+      object-fit: fill !important;
     }
+    /* Underline: sits just below word, hugs its width */
+    .hero-heading .highlight-underline-img {
+      left: 0 !important;
+      bottom: -20% !important;
+      width: 100% !important;
+      height: auto !important;
+      max-height: 20px;
+    }
+
+    /* Description */
     .hero-description {
       position: relative !important;
       left: auto !important;
       top: auto !important;
       transform: none !important;
-      width: 85% !important;
+      width: 88% !important;
       margin: 20px auto 0 !important;
       font-size: clamp(13px, 3.5vw, 18px) !important;
       line-height: 1.6 !important;
     }
+
     .hero-images-desktop { display: none !important; }
     .hero-images-tablet  { display: none !important; }
     .hero-images-mobile  { display: flex !important; }
   }
 
-  /* shared responsive image containers */
+  /* ─── Shared tablet image container ─── */
   .hero-images-tablet {
     display: none;
     position: relative;
@@ -164,6 +223,8 @@ const heroStyles = `
     margin: 40px auto 0;
     height: 18vw;
   }
+
+  /* ─── Shared mobile image container ─── */
   .hero-images-mobile {
     display: none;
     flex-direction: column;
@@ -182,16 +243,15 @@ const heroStyles = `
 
 const teamImages = [e262, e261, e255, e256, e257, e258, e259, e260]
 
-/* Tablet scattered positions as % of container */
 const tabletPositions = [
-  { left: '0%',    bottom: '0',   top: 'auto', border: false },
-  { left: '8%',    bottom: '15%', top: 'auto', border: true  },
+  { left: '0%',    bottom: '0',   top: 'auto',  border: false },
+  { left: '8%',    bottom: '15%', top: 'auto',  border: true  },
   { left: '27%',   top: '0',      bottom: 'auto', border: false },
-  { left: '34%',   bottom: '0',   top: 'auto', border: false },
+  { left: '34%',   bottom: '0',   top: 'auto',  border: false },
   { left: '51%',   top: '10%',    bottom: 'auto', border: false },
-  { left: '58.5%', bottom: '0',   top: 'auto', border: true  },
+  { left: '58.5%', bottom: '0',   top: 'auto',  border: true  },
   { left: '73%',   top: '0',      bottom: 'auto', border: false },
-  { right: '0%',   bottom: '0',   top: 'auto', left: 'auto', border: false },
+  { right: '0%',   bottom: '0',   top: 'auto',  left: 'auto', border: false },
 ]
 
 export default function Hero() {
@@ -202,23 +262,17 @@ export default function Hero() {
       <section className="hero-section">
 
         {/* Left Decorative Curves */}
-        <img
-          src={vector2510}
-          alt=""
+        <img src={vector2510} alt=""
           className="hero-curve-outer absolute object-contain"
           style={{ left: '-70px', top: '350px', width: '260px', height: '540px' }}
         />
-        <img
-          src={vector2511}
-          alt=""
+        <img src={vector2511} alt=""
           className="hero-curve-inner absolute object-contain"
           style={{ left: '60px', top: '370px', width: '140px', height: '450px' }}
         />
 
         {/* Purple Shape */}
-        <img
-          src={ellipse736}
-          alt=""
+        <img src={ellipse736} alt=""
           className="hero-purple absolute object-contain"
           style={{ left: '1650px', top: '400px', width: '120px', height: '120px' }}
         />
@@ -238,55 +292,35 @@ export default function Hero() {
           }}
         >
           The{' '}
+          {/* "thinkers" — underline vector sits below the word */}
           <span className="relative inline-block">
             thinkers
             <img
               src={vector5}
               alt=""
-              className="highlight-underline absolute pointer-events-none"
-              style={{
-                left: '-10px',
-                bottom: '-250px',
-                width: '600px',
-                height: '500px',
-                objectFit: 'contain',
-              }}
+              className="highlight-underline-img absolute pointer-events-none"
             />
           </span>{' '}
           and
           <br />
           doers were{' '}
+          {/* "changing" — pink highlight fills the span */}
           <span className="relative inline-block">
             <img
               src={rectangle657}
               alt=""
-              className="highlight-pink absolute"
-              style={{
-                left: '120px',
-                top: '20px',
-                width: '1220px',
-                height: '105px',
-                objectFit: 'contain',
-                zIndex: -1,
-              }}
+              className="highlight-pink-img absolute"
             />
             changing
           </span>
           <br />
           the{' '}
+          {/* "status" — green highlight fills the span */}
           <span className="relative inline-block">
             <img
               src={rectangle658}
               alt=""
-              className="highlight-green absolute"
-              style={{
-                left: '10px',
-                top: '0px',
-                width: '3000px',
-                height: '150px',
-                objectFit: 'contain',
-                zIndex: -1,
-              }}
+              className="highlight-green-img absolute"
             />
             status
           </span>{' '}
@@ -312,18 +346,18 @@ export default function Hero() {
           things safe.
         </p>
 
-        {/* ── DESKTOP team images (original, untouched) ── */}
+        {/* ── DESKTOP team images (original pixel values, untouched) ── */}
         <div className="hero-images-desktop">
           <img src={e262} alt="" className="absolute rounded-full object-cover"
-            style={{ left: '70px', top: '860px', width: '226px', height: '226px' }} />
+            style={{ left: '70px',   top: '860px', width: '226px', height: '226px' }} />
           <img src={e261} alt="" className="absolute rounded-full object-cover"
-            style={{ left: '210px', top: '840px', width: '226px', height: '226px', border: '8px solid #fff', boxSizing: 'border-box' }} />
+            style={{ left: '210px',  top: '840px', width: '226px', height: '226px', border: '8px solid #fff', boxSizing: 'border-box' }} />
           <img src={e255} alt="" className="absolute rounded-full object-cover"
-            style={{ left: '540px', top: '700px', width: '226px', height: '226px' }} />
+            style={{ left: '540px',  top: '700px', width: '226px', height: '226px' }} />
           <img src={e256} alt="" className="absolute rounded-full object-cover"
-            style={{ left: '670px', top: '930px', width: '226px', height: '226px' }} />
+            style={{ left: '670px',  top: '930px', width: '226px', height: '226px' }} />
           <img src={e257} alt="" className="absolute rounded-full object-cover"
-            style={{ left: '980px', top: '760px', width: '226px', height: '226px' }} />
+            style={{ left: '980px',  top: '760px', width: '226px', height: '226px' }} />
           <img src={e258} alt="" className="absolute rounded-full object-cover"
             style={{ left: '1130px', top: '860px', width: '226px', height: '226px', border: '8px solid #fff', boxSizing: 'border-box' }} />
           <img src={e259} alt="" className="absolute rounded-full object-cover"
@@ -332,20 +366,17 @@ export default function Hero() {
             style={{ left: '1650px', top: '860px', width: '226px', height: '226px' }} />
         </div>
 
-        {/* ── TABLET team images (scattered %, same feel) ── */}
+        {/* ── TABLET team images — scattered %, same visual feel ── */}
         <div className="hero-images-tablet">
           {teamImages.map((src, i) => (
-            <img
-              key={i}
-              src={src}
-              alt=""
+            <img key={i} src={src} alt=""
               className="absolute rounded-full object-cover"
               style={{
                 width: '11.5vw',
                 height: '11.5vw',
                 ...(tabletPositions[i].left !== 'auto' ? { left: tabletPositions[i].left } : {}),
-                ...(tabletPositions[i].right ? { right: tabletPositions[i].right } : {}),
-                ...(tabletPositions[i].top !== 'auto' ? { top: tabletPositions[i].top } : {}),
+                ...(tabletPositions[i].right           ? { right: tabletPositions[i].right } : {}),
+                ...(tabletPositions[i].top !== 'auto'  ? { top: tabletPositions[i].top }    : {}),
                 ...(tabletPositions[i].bottom !== 'auto' ? { bottom: tabletPositions[i].bottom } : {}),
                 ...(tabletPositions[i].border ? { border: '4px solid #fff', boxSizing: 'border-box' } : {}),
               }}
@@ -353,7 +384,7 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* ── MOBILE team images (two tidy rows) ── */}
+        {/* ── MOBILE team images — two tidy rows ── */}
         <div className="hero-images-mobile">
           <div className="hero-images-mobile-row">
             {[e262, e261, e255, e256].map((src, i) => (
